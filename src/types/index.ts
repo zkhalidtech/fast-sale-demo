@@ -91,3 +91,80 @@ export interface RecentEnrollment {
   date: string;
   amount: number;
 }
+
+export interface Learner {
+  id: string;
+  name: string;
+  email: string;
+  avatar: string;
+  enrolledCourses: number;
+  completedCourses: number;
+  completionRate: number;
+  lastActive: string;
+  status: "Active" | "Inactive" | "Suspended";
+  joinedDate: string;
+  organization: string;
+}
+
+export interface Transaction {
+  id: string;
+  learnerName: string;
+  courseName: string;
+  date: string;
+  amount: number;
+  status: "Completed" | "Pending" | "Refunded";
+}
+
+export interface UserProfile {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  organization: string;
+  jobTitle: string;
+  bio: string;
+}
+
+export interface BillingHistory {
+  id: string;
+  date: string;
+  description: string;
+  amount: number;
+  status: "Paid" | "Pending" | "Failed";
+}
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  email: string;
+  avatar: string;
+  coursesAssigned: number;
+  coursesCompleted: number;
+  completionRate: number;
+  status: "Active" | "Inactive";
+}
+
+export interface LearningPath {
+  id: string;
+  title: string;
+  description: string;
+  courses: string[];
+  teamCompletion: number;
+  color: string;
+}
+
+export interface TeamAssignment {
+  courseId: string;
+  courseTitle: string;
+  membersAssigned: number;
+  avgProgress: number;
+  dueDate: string;
+}
+
+export interface QuizQuestion {
+  id: string;
+  question: string;
+  options: string[];
+  correctAnswer: number;
+}

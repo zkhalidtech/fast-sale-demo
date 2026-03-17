@@ -6,6 +6,14 @@ import {
   AdminStats,
   MonthlyData,
   RecentEnrollment,
+  Learner,
+  Transaction,
+  UserProfile,
+  BillingHistory,
+  TeamMember,
+  LearningPath,
+  TeamAssignment,
+  QuizQuestion,
 } from "@/types";
 
 export const courses: Course[] = [
@@ -579,6 +587,18 @@ export const certificates: Certificate[] = [
     completedDate: "2025-12-20",
     credentialId: "FSTC-COMP-2025-4821",
   },
+  {
+    id: "cert-2",
+    courseTitle: "Customer Experience Excellence",
+    completedDate: "2026-02-14",
+    credentialId: "FSTC-CXE-2026-1037",
+  },
+  {
+    id: "cert-3",
+    courseTitle: "EV Sales Specialist Certification",
+    completedDate: "2026-03-05",
+    credentialId: "FSTC-EVSC-2026-2194",
+  },
 ];
 
 export const adminStats: AdminStats = {
@@ -616,4 +636,159 @@ export const recentEnrollments: RecentEnrollment[] = [
   { id: "e6", learnerName: "Derek Chang", email: "dchang@group.com", courseName: "Digital Retailing for Auto Sales", date: "2026-03-15", amount: 349 },
   { id: "e7", learnerName: "Rachel Green", email: "rgreen@motors.com", courseName: "Auto Broker Business Masterclass", date: "2026-03-14", amount: 599 },
   { id: "e8", learnerName: "Marcus Williams", email: "mwilliams@dealer.com", courseName: "Advanced Negotiation Strategies", date: "2026-03-14", amount: 349 },
+];
+
+export const learners: Learner[] = [
+  { id: "l1", name: "Maria Santos", email: "msantos@dealer.com", avatar: "MS", enrolledCourses: 3, completedCourses: 2, completionRate: 85, lastActive: "2026-03-17", status: "Active", joinedDate: "2025-08-12", organization: "Pacific Coast Honda" },
+  { id: "l2", name: "Tyler Johnson", email: "tjohnson@autogroup.com", avatar: "TJ", enrolledCourses: 2, completedCourses: 1, completionRate: 62, lastActive: "2026-03-17", status: "Active", joinedDate: "2025-09-03", organization: "Midwest Auto Group" },
+  { id: "l3", name: "Priya Patel", email: "ppatel@motors.com", avatar: "PP", enrolledCourses: 4, completedCourses: 3, completionRate: 91, lastActive: "2026-03-16", status: "Active", joinedDate: "2025-06-22", organization: "Sunrise Motors" },
+  { id: "l4", name: "Chris Okafor", email: "cokafor@dealer.com", avatar: "CO", enrolledCourses: 2, completedCourses: 0, completionRate: 28, lastActive: "2026-03-16", status: "Active", joinedDate: "2026-01-15", organization: "Pacific Coast Honda" },
+  { id: "l5", name: "Anna Kowalski", email: "akowalski@auto.com", avatar: "AK", enrolledCourses: 3, completedCourses: 3, completionRate: 100, lastActive: "2026-03-15", status: "Active", joinedDate: "2025-05-10", organization: "Summit Auto Group" },
+  { id: "l6", name: "Derek Chang", email: "dchang@group.com", avatar: "DC", enrolledCourses: 1, completedCourses: 0, completionRate: 45, lastActive: "2026-03-15", status: "Active", joinedDate: "2026-02-01", organization: "Dynasty Motors" },
+  { id: "l7", name: "Rachel Green", email: "rgreen@motors.com", avatar: "RG", enrolledCourses: 5, completedCourses: 4, completionRate: 94, lastActive: "2026-03-14", status: "Active", joinedDate: "2025-04-18", organization: "Sunrise Motors" },
+  { id: "l8", name: "Marcus Williams", email: "mwilliams@dealer.com", avatar: "MW", enrolledCourses: 2, completedCourses: 1, completionRate: 71, lastActive: "2026-03-14", status: "Active", joinedDate: "2025-11-05", organization: "Pacific Coast Honda" },
+  { id: "l9", name: "Sofia Hernandez", email: "shernandez@auto.com", avatar: "SH", enrolledCourses: 3, completedCourses: 2, completionRate: 78, lastActive: "2026-03-10", status: "Active", joinedDate: "2025-07-14", organization: "Summit Auto Group" },
+  { id: "l10", name: "James Liu", email: "jliu@dealer.com", avatar: "JL", enrolledCourses: 1, completedCourses: 0, completionRate: 15, lastActive: "2026-02-28", status: "Inactive", joinedDate: "2025-12-01", organization: "Dynasty Motors" },
+  { id: "l11", name: "Olivia Brown", email: "obrown@motors.com", avatar: "OB", enrolledCourses: 2, completedCourses: 1, completionRate: 55, lastActive: "2026-02-20", status: "Inactive", joinedDate: "2025-10-20", organization: "Midwest Auto Group" },
+  { id: "l12", name: "Ethan Davis", email: "edavis@auto.com", avatar: "ED", enrolledCourses: 0, completedCourses: 0, completionRate: 0, lastActive: "2026-01-05", status: "Suspended", joinedDate: "2025-09-15", organization: "Pacific Coast Honda" },
+];
+
+export const transactions: Transaction[] = [
+  { id: "t1", learnerName: "Maria Santos", courseName: "Mastering the Auto Sales Process", date: "2026-03-17", amount: 299, status: "Completed" },
+  { id: "t2", learnerName: "Tyler Johnson", courseName: "F&I Manager Certification Program", date: "2026-03-17", amount: 499, status: "Completed" },
+  { id: "t3", learnerName: "Priya Patel", courseName: "EV Sales Specialist Certification", date: "2026-03-16", amount: 399, status: "Completed" },
+  { id: "t4", learnerName: "Chris Okafor", courseName: "Dealership Leadership Academy", date: "2026-03-16", amount: 449, status: "Pending" },
+  { id: "t5", learnerName: "Anna Kowalski", courseName: "Automotive Compliance Essentials", date: "2026-03-15", amount: 249, status: "Completed" },
+  { id: "t6", learnerName: "Derek Chang", courseName: "Digital Retailing for Auto Sales", date: "2026-03-15", amount: 349, status: "Completed" },
+  { id: "t7", learnerName: "Rachel Green", courseName: "Auto Broker Business Masterclass", date: "2026-03-14", amount: 599, status: "Completed" },
+  { id: "t8", learnerName: "Marcus Williams", courseName: "Advanced Negotiation Strategies", date: "2026-03-14", amount: 349, status: "Completed" },
+  { id: "t9", learnerName: "Sofia Hernandez", courseName: "Customer Experience Excellence", date: "2026-03-13", amount: 279, status: "Completed" },
+  { id: "t10", learnerName: "James Liu", courseName: "Used Vehicle Appraisal & Acquisition", date: "2026-03-12", amount: 379, status: "Refunded" },
+];
+
+export const userProfile: UserProfile = {
+  firstName: "Alex",
+  lastName: "Johnson",
+  email: "alex.johnson@pacificcoast.com",
+  phone: "(555) 123-4567",
+  organization: "Pacific Coast Auto Group",
+  jobTitle: "Senior Sales Consultant",
+  bio: "Experienced automotive sales professional with 8+ years in the industry. Passionate about continuous learning and helping customers find the perfect vehicle.",
+};
+
+export const billingHistory: BillingHistory[] = [
+  { id: "b1", date: "2026-03-01", description: "Pro Plan - Monthly", amount: 49.99, status: "Paid" },
+  { id: "b2", date: "2026-02-01", description: "Pro Plan - Monthly", amount: 49.99, status: "Paid" },
+  { id: "b3", date: "2026-01-01", description: "Pro Plan - Monthly", amount: 49.99, status: "Paid" },
+  { id: "b4", date: "2025-12-01", description: "Pro Plan - Monthly", amount: 49.99, status: "Paid" },
+  { id: "b5", date: "2025-11-01", description: "Basic Plan - Monthly", amount: 29.99, status: "Paid" },
+];
+
+export const teamMembers: TeamMember[] = [
+  { id: "tm1", name: "Alex Johnson", role: "Senior Sales Consultant", email: "ajohnson@pacificcoast.com", avatar: "AJ", coursesAssigned: 5, coursesCompleted: 4, completionRate: 92, status: "Active" },
+  { id: "tm2", name: "Maria Santos", role: "Sales Consultant", email: "msantos@pacificcoast.com", avatar: "MS", coursesAssigned: 4, coursesCompleted: 3, completionRate: 85, status: "Active" },
+  { id: "tm3", name: "Tyler Johnson", role: "F&I Manager", email: "tjohnson@pacificcoast.com", avatar: "TJ", coursesAssigned: 3, coursesCompleted: 2, completionRate: 78, status: "Active" },
+  { id: "tm4", name: "Chris Okafor", role: "Sales Consultant", email: "cokafor@pacificcoast.com", avatar: "CO", coursesAssigned: 4, coursesCompleted: 1, completionRate: 35, status: "Active" },
+  { id: "tm5", name: "Rachel Green", role: "Sales Manager", email: "rgreen@pacificcoast.com", avatar: "RG", coursesAssigned: 6, coursesCompleted: 5, completionRate: 94, status: "Active" },
+  { id: "tm6", name: "Marcus Williams", role: "BDC Representative", email: "mwilliams@pacificcoast.com", avatar: "MW", coursesAssigned: 3, coursesCompleted: 2, completionRate: 71, status: "Active" },
+  { id: "tm7", name: "Sofia Hernandez", role: "Sales Consultant", email: "shernandez@pacificcoast.com", avatar: "SH", coursesAssigned: 4, coursesCompleted: 3, completionRate: 82, status: "Active" },
+  { id: "tm8", name: "James Liu", role: "Internet Sales", email: "jliu@pacificcoast.com", avatar: "JL", coursesAssigned: 2, coursesCompleted: 0, completionRate: 15, status: "Inactive" },
+];
+
+export const learningPaths: LearningPath[] = [
+  {
+    id: "lp1",
+    title: "New Hire Onboarding",
+    description: "Essential courses for new team members to get up to speed quickly",
+    courses: ["Mastering the Auto Sales Process", "Customer Experience Excellence", "Automotive Compliance Essentials"],
+    teamCompletion: 72,
+    color: "from-blue-500 to-blue-700",
+  },
+  {
+    id: "lp2",
+    title: "F&I Certification Track",
+    description: "Complete F&I training path for aspiring and current F&I managers",
+    courses: ["F&I Manager Certification Program", "F&I Compliance Deep Dive", "Advanced Negotiation Strategies"],
+    teamCompletion: 58,
+    color: "from-emerald-500 to-emerald-700",
+  },
+  {
+    id: "lp3",
+    title: "Management Track",
+    description: "Leadership development path for sales managers and dealer principals",
+    courses: ["Dealership Leadership Academy", "Customer Experience Excellence", "Digital Retailing for Auto Sales"],
+    teamCompletion: 45,
+    color: "from-violet-500 to-violet-700",
+  },
+];
+
+export const teamAssignments: TeamAssignment[] = [
+  { courseId: "1", courseTitle: "Mastering the Auto Sales Process", membersAssigned: 6, avgProgress: 72, dueDate: "2026-04-15" },
+  { courseId: "5", courseTitle: "Automotive Compliance Essentials", membersAssigned: 8, avgProgress: 85, dueDate: "2026-03-30" },
+  { courseId: "8", courseTitle: "Customer Experience Excellence", membersAssigned: 5, avgProgress: 60, dueDate: "2026-04-30" },
+  { courseId: "10", courseTitle: "EV Sales Specialist Certification", membersAssigned: 4, avgProgress: 40, dueDate: "2026-05-15" },
+  { courseId: "6", courseTitle: "Digital Retailing for Auto Sales", membersAssigned: 3, avgProgress: 25, dueDate: "2026-05-30" },
+];
+
+export const quizQuestions: QuizQuestion[] = [
+  {
+    id: "q1",
+    question: "What is the first step in the automotive sales process?",
+    options: ["Negotiating the price", "Meeting and greeting the customer", "Presenting the vehicle features", "Closing the deal"],
+    correctAnswer: 1,
+  },
+  {
+    id: "q2",
+    question: "Which technique is most effective for building rapport with a new customer?",
+    options: ["Immediately discussing pricing", "Active listening and asking open-ended questions", "Showing the most expensive vehicle first", "Handing them a business card"],
+    correctAnswer: 1,
+  },
+  {
+    id: "q3",
+    question: "What does 'PVR' stand for in F&I?",
+    options: ["Price Value Ratio", "Per Vehicle Revenue", "Product Verification Report", "Pre-Vehicle Review"],
+    correctAnswer: 1,
+  },
+  {
+    id: "q4",
+    question: "When handling a price objection, what is the best approach?",
+    options: ["Immediately lower the price", "Focus on value and total cost of ownership", "Tell the customer they can't get a better deal", "Ignore the objection and move on"],
+    correctAnswer: 1,
+  },
+  {
+    id: "q5",
+    question: "What is the primary purpose of a needs analysis in auto sales?",
+    options: ["To waste time before negotiation", "To understand the customer's requirements and preferences", "To show off product knowledge", "To qualify the customer's credit"],
+    correctAnswer: 1,
+  },
+  {
+    id: "q6",
+    question: "Which federal regulation governs truth in lending disclosures?",
+    options: ["ECOA", "FCRA", "TILA", "FTC Act"],
+    correctAnswer: 2,
+  },
+  {
+    id: "q7",
+    question: "What is the most important factor in a successful test drive?",
+    options: ["Driving the fastest route", "Letting the customer experience features relevant to their needs", "Keeping the drive under 5 minutes", "Playing loud music to demonstrate the audio system"],
+    correctAnswer: 1,
+  },
+  {
+    id: "q8",
+    question: "What does CSI stand for in the automotive industry?",
+    options: ["Customer Sales Index", "Customer Satisfaction Index", "Certified Sales Indicator", "Customer Service Integration"],
+    correctAnswer: 1,
+  },
+  {
+    id: "q9",
+    question: "Which is a key benefit of GAP insurance for customers?",
+    options: ["It covers routine maintenance", "It covers the difference between what they owe and the vehicle's value", "It provides free roadside assistance", "It reduces their monthly payment"],
+    correctAnswer: 1,
+  },
+  {
+    id: "q10",
+    question: "What is the 'walk-around' technique in vehicle presentation?",
+    options: ["Walking around the dealership to find inventory", "A systematic presentation of a vehicle's exterior and interior features", "Walking the customer to the F&I office", "A negotiation technique used at the desk"],
+    correctAnswer: 1,
+  },
 ];

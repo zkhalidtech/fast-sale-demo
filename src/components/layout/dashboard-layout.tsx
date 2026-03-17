@@ -12,34 +12,56 @@ import {
   DollarSign,
   FileText,
   Zap,
+  Building2,
+  GraduationCap,
+  Route,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const learnerLinks = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/courses", label: "Browse Courses", icon: BookOpen },
-  { href: "/dashboard", label: "My Certificates", icon: Award },
-  { href: "/dashboard", label: "Settings", icon: Settings },
+  { href: "/dashboard/certificates", label: "My Certificates", icon: Award },
+  { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ]
 
 const adminLinks = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/admin", label: "Courses", icon: BookOpen },
-  { href: "/admin", label: "Learners", icon: Users },
-  { href: "/admin", label: "Revenue", icon: DollarSign },
-  { href: "/admin", label: "Analytics", icon: BarChart3 },
+  { href: "/admin/courses", label: "Courses", icon: BookOpen },
+  { href: "/admin/learners", label: "Learners", icon: Users },
+  { href: "/admin/revenue", label: "Revenue", icon: DollarSign },
+  { href: "/admin/analytics", label: "Analytics", icon: BarChart3 },
   { href: "/admin", label: "Reports", icon: FileText },
   { href: "/admin", label: "Settings", icon: Settings },
 ]
 
+const organizationLinks = [
+  { href: "/organization", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/organization", label: "Team Members", icon: Users },
+  { href: "/organization", label: "Assignments", icon: GraduationCap },
+  { href: "/organization", label: "Learning Paths", icon: Route },
+]
+
 interface DashboardLayoutProps {
   children: React.ReactNode
-  variant: "learner" | "admin"
+  variant: "learner" | "admin" | "organization"
 }
 
 export function DashboardLayout({ children, variant }: DashboardLayoutProps) {
   const pathname = usePathname()
-  const links = variant === "admin" ? adminLinks : learnerLinks
+  const links =
+    variant === "admin"
+      ? adminLinks
+      : variant === "organization"
+      ? organizationLinks
+      : learnerLinks
+
+  const sidebarTitle =
+    variant === "admin"
+      ? "Admin Panel"
+      : variant === "organization"
+      ? "Organization"
+      : "Learning Portal"
 
   return (
     <div className="flex min-h-[calc(100vh-4rem)]">
@@ -47,16 +69,19 @@ export function DashboardLayout({ children, variant }: DashboardLayoutProps) {
       <aside className="hidden w-64 border-r bg-muted/30 lg:block">
         <div className="flex h-full flex-col">
           <div className="flex items-center gap-2 border-b px-6 py-4">
-            <Zap className="h-5 w-5 text-amber" />
+            {variant === "organization" ? (
+              <Building2 className="h-5 w-5 text-amber" />
+            ) : (
+              <Zap className="h-5 w-5 text-amber" />
+            )}
             <span className="text-sm font-semibold text-navy">
-              {variant === "admin" ? "Admin Panel" : "Learning Portal"}
+              {sidebarTitle}
             </span>
           </div>
           <nav className="flex-1 space-y-1 px-3 py-4">
             {links.map((link, index) => {
               const Icon = link.icon
-              const isActive =
-                index === 0 && pathname === link.href
+              const isActive = pathname === link.href
               return (
                 <Link
                   key={`${link.label}-${index}`}
